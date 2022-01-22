@@ -16,5 +16,8 @@ class MainActivity : AppCompatActivity() {
         //mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         employee = Employee("Süleyman","Kınık","Android Dev",5,"https://bogazda.org/blog/wp-content/uploads/2020/12/istanbulbogazi-1024x556.jpg")
         mainBinding.emp = employee
+        mainBinding.button.setOnClickListener {
+            mainBinding.ivPhoto.setPhotoFromUrl("https://aux2.iconspalace.com/uploads/search-icon-256-862029948.png")
+        }
     }
 }
