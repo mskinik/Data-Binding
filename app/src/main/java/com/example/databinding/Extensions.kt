@@ -9,9 +9,12 @@ import com.squareup.picasso.Picasso
  */
 
 @BindingAdapter("url")
-fun ImageView.setPhotoFromUrl(stringUrl:String){
-    Picasso.get().load(stringUrl)
-        .placeholder(R.drawable.ic_launcher_foreground)
-        .error(R.drawable.ic_launcher_background)
-        .into(this)
+fun ImageView.setPhotoFromUrl(stringUrl:String?){
+    stringUrl?.let {
+        Picasso.get().load(stringUrl)
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .error(R.drawable.ic_launcher_background)
+            .into(this)
+    }
+
 }
