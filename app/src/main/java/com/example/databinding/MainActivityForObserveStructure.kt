@@ -34,8 +34,13 @@ class MainActivityForObserveStructure : AppCompatActivity() {
     fun openFragment(){
         binding.clItems.visibility = View.GONE
         binding.frameLayout.visibility= View.VISIBLE
+        /*
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.frame_layout,BlankFragment(),"").commit()
+         */
+        val manager = supportFragmentManager
+        val transcation = manager.beginTransaction()
+        transcation.replace(R.id.frame_layout,FragmentList()).commit()
     }
 }
