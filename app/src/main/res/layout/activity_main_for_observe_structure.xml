@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="empObs"
             type="com.example.databinding.EmployeeWithObservable" />
+        <variable
+            name="act"
+            type="com.example.databinding.MainActivityForObserveStructure"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -15,86 +17,124 @@
         android:layout_height="match_parent"
         tools:context=".MainActivityForObserveStructure">
 
-        <ImageView
-            android:id="@+id/iv_photo_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:layout_constraintStart_toStartOf="@id/tv_name_obs"
-            app:layout_constraintTop_toTopOf="parent"
-            app:url="@{empObs.image}" />
-
-        <TextView
-            android:id="@+id/tv_name_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="sans-serif-black"
-            android:text="@{empObs.name}"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_photo_obs"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="67dp" />
-
-        <TextView
-            android:id="@+id/tv_surname_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="sans-serif-black"
-            android:text="@{empObs.surname}"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/tv_name_obs"
-            app:layout_constraintTop_toBottomOf="@id/tv_name_obs"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="132dp" />
-
-        <TextView
-            android:id="@+id/tv_title_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:text="@{empObs.title}"
-            app:layout_constraintStart_toStartOf="@id/tv_name_obs"
-            app:layout_constraintTop_toBottomOf="@id/tv_surname_obs"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="191dp" />
-
-        <TextView
-            android:id="@+id/tv_deegree_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:fontFamily="sans-serif-black"
-            android:text="@{empObs.degree.toString()}"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/tv_name_obs"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_obs"
-            tools:layout_editor_absoluteX="37dp"
-            tools:layout_editor_absoluteY="252dp" />
-
-        <Button
-            android:id="@+id/button_obs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
-            android:background="@color/purple_200"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:text="Change All Data"
-            android:textColor="@color/white"
-            android:textSize="17sp"
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_photo_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="@id/tv_name_obs"
+                app:layout_constraintTop_toTopOf="parent"
+                app:url="@{empObs.image}" />
+
+            <TextView
+                android:id="@+id/tv_name_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@{empObs.name}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_photo_obs"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="67dp" />
+
+            <TextView
+                android:id="@+id/tv_surname_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@{empObs.surname}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_name_obs"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_obs"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="132dp" />
+
+            <TextView
+                android:id="@+id/tv_title_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@{empObs.title}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_name_obs"
+                app:layout_constraintTop_toBottomOf="@id/tv_surname_obs"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="191dp" />
+
+            <TextView
+                android:id="@+id/tv_deegree_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@{empObs.degree.toString()}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_name_obs"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_obs"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="252dp" />
+
+            <Button
+                android:id="@+id/button_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="150dp"
+                android:background="@color/purple_200"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="Change All Data"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/button2_obs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@color/purple_200"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="Open the fragment"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:onClick="@{()->act.openFragment()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/button_obs"
+                tools:layout_editor_absoluteY="618dp" />
+        </android.support.constraint.ConstraintLayout>
+
     </android.support.constraint.ConstraintLayout>
 </layout>
